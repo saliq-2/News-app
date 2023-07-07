@@ -3,6 +3,8 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:news/model/news_model.dart';
+
+import 'news_info/news_info.dart';
 class Sports extends StatefulWidget
 {
 
@@ -41,29 +43,29 @@ class _SportsState extends State<Sports> {
         children: [
           Expanded(
             child: ListView.builder(
-              itemCount: news.length,
-              itemBuilder: (context,index)=>
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Container(
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
+                itemCount: news.length,
+                itemBuilder: (context,index)=>
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 8,top: 8),
+                      child: ListTile(
+                        leading: Image.network(news[index].image,width: 100,height: 100,),
+                        title: InkWell(
+                            onTap: (){
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=>news_info(obj: news[index])));
+                            },
 
-                              fit: BoxFit.cover,
-                              image: NetworkImage(news[index].image)),
-                        ),
-                        height: 400,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.end,
+                            child: Text(news[index].title,style: TextStyle(fontWeight: FontWeight.bold),)),
+                        subtitle: Row(
                           children: [
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(news[index].description+"read more",style: TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.bold),),
-                            ),
+                            Icon(Icons.watch_later_outlined),
+                            Text(news[index].publishedAt.toString()),
+
                           ],
-                        )
-                    ),
-                  ),
+                        ),
+                        trailing: Icon(Icons.remove_red_eye),
+                      ),
+
+                    )
 
             ),
           ),

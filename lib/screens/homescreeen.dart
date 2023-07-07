@@ -96,7 +96,7 @@ class homescreen extends StatelessWidget
                   padding: const EdgeInsets.all(8.0),
                   child: TabBarView(children: [
                     All(),
-                    latest(),
+                    world(),
 
                     headlines(),
                     Sports(),
