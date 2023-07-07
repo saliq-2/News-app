@@ -28,11 +28,11 @@ class _latestState extends State<latest> {
     }
   }
   @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    getData();
-  }
+  // void initState() {
+  //   // TODO: implement initState
+  //   super.initState();
+  //   getData();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -65,7 +65,7 @@ class _latestState extends State<latest> {
                                     Navigator.push(context, MaterialPageRoute(builder: (context)=>news_info(obj: news[index])));
                                   },
 
-                                  child: Text(news[index].description+"read more",style: TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.bold),)
+                                  child: Text(news[index].title+" read more",style: TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.bold),)
 
                               ),
                             ),
