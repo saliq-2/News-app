@@ -3,6 +3,8 @@ import 'dart:convert';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:news/screens/homescreeen.dart';
+import 'package:news/screens/news_info/news_info.dart';
 
 import '../../model/news_model.dart';
 
@@ -52,7 +54,7 @@ class _homepageState extends State<homepage> {
               image: DecorationImage(
                 fit: BoxFit.cover,
 
-                image: NetworkImage(news[1].image)
+                image: NetworkImage(news[3].image)
               ),
 
               borderRadius: BorderRadius.only(bottomLeft: Radius.circular(35),bottomRight: Radius.circular(35)),
@@ -62,7 +64,7 @@ class _homepageState extends State<homepage> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(news[1].title,style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold,color: Colors.white),),
+                  Text(news[3].title,style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold,color: Colors.white),),
                 ],
               ),
             ),
@@ -80,7 +82,9 @@ class _homepageState extends State<homepage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text("Breaking News",style: TextStyle(fontWeight: FontWeight.w800,fontSize: 25),),
-                TextButton(onPressed: (){}, child: Text("See All",style: TextStyle(fontSize: 16),))
+                TextButton(onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>homescreen()));
+                }, child: Text("See All",style: TextStyle(fontSize: 16),))
               ],
             ),
           ),
@@ -97,7 +101,12 @@ class _homepageState extends State<homepage> {
                  color: Colors.grey.shade200,
                  child: Column(
                    children: [
-                     Image.network(news[index].image,fit: BoxFit.cover,),
+                     InkWell(
+                         onTap: ()
+                         {
+                           Navigator.push(context, MaterialPageRoute(builder: (context)=>news_info(obj: news[index])));
+                         },
+                         child: Image.network(news[index].image,fit: BoxFit.cover,)),
 
 
                      Padding(

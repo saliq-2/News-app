@@ -82,12 +82,14 @@ class homescreen extends StatelessWidget
 
 
 
-                    tabs: [
-                  Text("All",style: TextStyle(fontSize: 18,color: Colors.black,fontWeight: FontWeight.w600  ),),
-                  Text("Latest",style: TextStyle(fontSize: 18,color: Colors.black,fontWeight: FontWeight.w600  )),
-                      Text("Science",style: TextStyle(fontSize: 18,color: Colors.black,fontWeight: FontWeight.w600  )),
-                      Text("Sports",style: TextStyle(fontSize: 18,color: Colors.black,fontWeight: FontWeight.w600  )),
-                ]),
+                    tabs:
+                    [
+                  Text("All",style: TextStyle(fontSize: 15,color: Colors.black,fontWeight: FontWeight.w600  ),),
+                  Text("Latest",style: TextStyle(fontSize: 15,color: Colors.black,fontWeight: FontWeight.w600  )),
+                      Text("Science",style: TextStyle(fontSize: 15,color: Colors.black,fontWeight: FontWeight.w600  )),
+                      Text("Sports",style: TextStyle(fontSize: 15,color: Colors.black,fontWeight: FontWeight.w600  )),
+                ]
+                ),
               ),
               SizedBox(height: 20,),
 

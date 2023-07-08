@@ -18,7 +18,7 @@ class _worldState extends State<world> {
   bool isLoading=true;
   void getData() async
   {
-    final response=await  http.get(Uri.parse("https://gnews.io/api/v4/top-headlines?category=sports&lang=en&country=in&max=50&apikey=d3256a2afe2e2289ece2efa4c8f4b4f1"));
+    final response=await  http.get(Uri.parse("https://gnews.io/api/v4/top-headlines?category=general&lang=en&country=in&max=50&apikey=d3256a2afe2e2289ece2efa4c8f4b4f1"));
     if(response.statusCode==200)
     {
       map=json.decode(response.body);

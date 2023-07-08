@@ -47,6 +47,7 @@ class _AllState extends State<All> {
                   Padding(
                     padding: const EdgeInsets.only(bottom: 8,top: 8),
                     child: ListTile(
+
                       leading: Image.network(news[index].image,width: 100,height: 100,),
                       title: InkWell(
                           onTap: (){
@@ -57,7 +58,17 @@ class _AllState extends State<All> {
                       subtitle: Row(
                         children: [
                           Icon(Icons.watch_later_outlined),
-                          Text(news[index].publishedAt.toString()),
+                          Text(
+
+
+                              news[index].publishedAt.toString(),
+
+
+
+
+
+
+                          ),
 
                         ],
                       ),
